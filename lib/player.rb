@@ -1,7 +1,9 @@
 class Player
 
   def place_ship_on_board(board)
-    board.place_ship
+    x = gets.to_i
+    y = gets.to_i
+    board.place_ship(x, y)
   end
 
   def make_move(board)

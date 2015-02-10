@@ -13,9 +13,9 @@ class Board
     @grid
   end
 
-  def place_ship
-    row = gets.to_i
-    column = gets.to_i
+  def place_ship(x, y)
+    row = x
+    column = y
     @grid[row] [column] = 'hit'
   end
 
