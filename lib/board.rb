@@ -2,6 +2,7 @@ class Board
 
   def initialize
     @grid = Array.new(2) { Array.new(2) }
+    draw_grid
   end
 
   def draw_grid
@@ -16,8 +17,9 @@ class Board
   def place_ship(x, y)
     row = x
     column = y
-    @grid[row] [column] = 'hit'
+    @grid[row] [column] = 'hit' 
   end
+
 
   def check_hit(x, y)
     row = x

@@ -2,11 +2,12 @@ require 'board'
 
 describe Board do
 
-  let(:board) { Board.new }
+  let(:board) { Board.new  }
+  let(:player){ Player.new }
 
   context 'grid' do
 
-    it 'should draw a grid' do
+    it 'should have a grid' do
       expect(board.draw_grid).to eq [["miss", "miss"],["miss", "miss"]]
     end
 
@@ -15,7 +16,11 @@ describe Board do
       expect(board.place_ship(0, 0)).to eq 'hit'
     end
 
-  end
+    it 'should return nil if a ship is placed in an unavailable cell' do
+      expect(board.place_ship(0, 2)).to eq nil
+    end
 
+
+  end
 
 end
