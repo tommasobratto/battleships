@@ -2,9 +2,9 @@ class Ship
 
   attr_reader :name, :capacity
 
-  def initialize(name, size)
+  def initialize(name, capacity)
     @name = name
-    @capacity = size
+    @capacity = capacity
   end
 
 end

@@ -1,13 +1,13 @@
 class Board
 
   def initialize
-    @grid = Array.new(2) { Array.new(2) }
+    @grid = Array.new(10) { Array.new(10) }
     draw_grid
   end
 
   def draw_grid
-    (0..1).each do |row|
-      (0..1).each do |column|
+    (0..9).each do |row|
+      (0..9).each do |column|
         @grid[row] [column] = 'miss'
       end
     end
