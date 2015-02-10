@@ -10,9 +10,9 @@ describe Board do
       expect(board.draw_grid).to eq [["miss", "miss"],["miss", "miss"]]
     end
 
-    it 'should place a hit' do
+    it 'should place a ship' do
       board.draw_grid
-      expect(board.place_hit(0, 0)).to eq 'hit'
+      expect(board.place_ship(0, 0)).to eq 'hit'
     end
 
   end

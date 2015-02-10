@@ -23,16 +23,16 @@ class Board
     row = x
     column = y
     if @grid[row] [column] == 'hit'
-      p "you've hit something"
+      p "Hit!"
       @grid[row] [column] = 'hit_marker'
       # game.score(player)
     elsif @grid[row] [column] == 'miss'
-      p "you have missed! HAHAHA"
+      p "Miss!"
       @grid[row] [column] = 'miss_marker'
     elsif @grid[row] [column] == 'hit_marker'
-      p "you can't hit a place you've already selected"
+      p "You can't hit a place you've already selected"
     else @grid[row] [column] == 'miss_marker'
-      p "you can't hit a place you've already selected"
+      p "You can't hit a place you've already selected"
     end
   end
 
