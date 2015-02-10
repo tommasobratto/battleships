@@ -6,17 +6,17 @@ class Board
 
   def draw_grid
     (0..1).each do |row|
-      (0..1).each do |cell|
-        @grid[row] [cell] = 'miss'
+      (0..1).each do |column|
+        @grid[row] [column] = 'miss'
       end
     end
     @grid
   end
 
-  def place_hit
-    row = gets.to_i
-    cell = gets.to_i
-    @grid[row] [cell] = 'hit'
+  def place_hit(x, y)
+    row = x
+    column = y
+    @grid[row] [column] = 'hit'
   end
 
   def grid
