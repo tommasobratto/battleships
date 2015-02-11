@@ -8,6 +8,10 @@ class Ship
     @hit_points = size
   end
 
+  def self.pedalo
+    new(1, 'pedalo')
+  end
+
   def self.destroyer
     new(2, 'destroyer')
   end
@@ -33,7 +37,7 @@ class Ship
   end
 
   def sunk?
-    @hit_points == 0
+    hit_points == 0
   end
 
 end
