@@ -1,13 +1,9 @@
 class Player
 
-  def cell_coordinates
-    @cell_coordinates
-  end
+  attr_reader :cell_coordinates
 
   def select_cell
-    letter = gets.chomp
-    number = gets.chomp
-    @cell_coordinates = (letter + number).to_s 
+    @cell_coordinates = gets.chomp
   end
 
   def place_ship(board)
