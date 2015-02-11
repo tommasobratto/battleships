@@ -29,5 +29,14 @@ class Board
   def place_marker(cell_coordinates)
     grid[cell_coordinates] = hit if grid[cell_coordinates] == ship
     grid[cell_coordinates] = miss if grid[cell_coordinates] == water
+    report_status(cell_coordinates)
+  end
+
+  def report_status(cell_coordinates)
+    if grid[cell_coordinates] == hit
+      p "Hit!"
+    else
+      p "Miss!"
+    end
   end
 end

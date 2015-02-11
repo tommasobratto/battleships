@@ -3,6 +3,7 @@ class Player
   attr_reader :cell_coordinates
 
   def select_cell
+    puts "type the cell's coordinates"
     @cell_coordinates = gets.chomp
   end
 
