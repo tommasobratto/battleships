@@ -2,15 +2,19 @@ require 'ship'
 
 describe Ship do
 
-  it "should have a size" do
-    ship = Ship.new(1)
-    expect(ship.size).to eq 1
+  it "should know what's going to be its name" do
+    ship = Ship.destroyer
+    expect(ship.name).to eq 'destroyer'
   end
 
-  it 'should have a name' do
-    ship = Ship.new(1)
-    expect(ship.name).to eq "name"
+  it "should know the size of a destroyer" do
+    ship = Ship.destroyer
+    expect(ship.size).to eq 2
+  end
 
+  it "should know when it has been hit" do
+    ship = Ship.destroyer
+    expect(ship.hit).to eq true
   end
 
 end

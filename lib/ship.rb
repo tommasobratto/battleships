@@ -1,13 +1,14 @@
 class Ship
 
-  attr_reader :size
+  attr_reader :size, :name
 
-  def initialize(size)
+  def initialize(size, name)
     @size = size
+    @name = name
   end
 
-  def size?
-    @size
+  def self.destroyer
+    new(2, 'destroyer')
   end
 
 end
