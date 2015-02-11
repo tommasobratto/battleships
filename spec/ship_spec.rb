@@ -15,7 +15,12 @@ describe Ship do
   it "should know when it has been hit" do
     ship = Ship.destroyer
     ship.hit
-    expect(ship.size).to eq 1
+    expect(ship.hit_points).to eq 1
+  end
+
+  it 'should know when it has been sunk' do
+    ship.hit
+    expect(ship.sunk).to eq true
   end
 
 end

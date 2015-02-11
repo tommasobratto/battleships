@@ -13,11 +13,7 @@ class Ship
   end
 
   def hit
-    size - 1
+    @hit_points = hit_points - 1
   end
-
-
-
-
 
 end
