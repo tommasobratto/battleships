@@ -1,39 +1,37 @@
-require_relative 'cell'
-require_relative 'ship'
 
 class Board
 
-  include Cell
-
-  attr_reader :grid
+  attr_reader :grid, :coordinates
 
   def initialize
-    draw_board
-  end
-
-  def draw_board
-  @grid = Hash.new
+   @grid = Hash.new
     ('a'..'b').each do |letter|
       (1..2).each do |number|
-        @grid["#{letter}#{number}"] = water
+        @grid["#{letter}#{number}"] = 'water '
       print @grid["#{letter}#{number}"]
       end
       puts 
     end
   end
 
-  def place_ship(cell_coordinates) # we can place the ship "pedalo"
-    grid[cell_coordinates] = ship
+  def get_coordinates
+    @coordinates = gets.chomp
   end
 
-  def place_marker(cell_coordinates)
-    grid[cell_coordinates] = hit if grid[cell_coordinates] == ship
-    grid[cell_coordinates] = miss if grid[cell_coordinates] == water
-    report_status(cell_coordinates)
+  def place_ship(ship) 
+    get_coordinates
+    ship.size.times { grid[coordinates] = 'ship '}
   end
 
-  def report_status(cell_coordinates)
-    if grid[cell_coordinates] == hit
+  def place_marker
+    get_coordinates
+    grid[coordinates] = 'hit ' if grid[coordinates] == 'ship '
+    grid[coordinates] = 'miss ' if grid[coordinates] == 'water '
+    report_status(coordinates)
+  end
+
+  def report_status(coordinates)
+    if grid[coordinates] == 'hit '
       p "Hit!"
     else
       p "Miss!"
