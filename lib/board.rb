@@ -16,19 +16,21 @@ class Board
   end
 
   def get_coordinates
-    @coordinates = gets.chomp
+      @coordinates = gets.chomp 
   end
 
   def place(ship) 
     get_coordinates
     @ships[:ship_location] = ship
     ship.size.times { grid[coordinates] = @ships[:ship_location]}
+    puts @grid
   end
 
   def take_shot
     get_coordinates
     grid[coordinates] = 'hit ' if grid[coordinates] == @ships[:ship_location]
     grid[coordinates] = 'miss ' if grid[coordinates] == 'water '
+    puts @grid
     report_status(@coordinates)
   end
 

@@ -44,5 +44,6 @@ class Ship
     hit if board.report_status(@coordinates) == "Hit!"
     p "Ship sunk!" if sunk?
   end
+  
 
 end
