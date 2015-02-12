@@ -6,12 +6,14 @@ describe Player do
   let(:board)  { double :board }
   let(:ship)   { double :ship  }
 
-  it "should be able to make a move" do
- 
+  it "should be able to shoot" do
+    expect(board).to receive(:take_shot)
+    player.shoot(board)
   end
 
   it "should be able to place a ship" do
-
+    expect(board).to receive(:place).with(ship)
+    player.place_ship(board, ship)
   end
   
 end

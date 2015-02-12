@@ -18,12 +18,12 @@ class Board
     @coordinates = gets.chomp
   end
 
-  def place_ship(ship) 
+  def place(ship) 
     get_coordinates
     ship.size.times { grid[coordinates] = 'ship '}
   end
 
-  def place_marker
+  def take_shot
     get_coordinates
     grid[coordinates] = 'hit ' if grid[coordinates] == 'ship '
     grid[coordinates] = 'miss ' if grid[coordinates] == 'water '
