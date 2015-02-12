@@ -40,4 +40,9 @@ class Ship
     hit_points == 0
   end
 
+  def has_been_hit?(board)
+    hit if board.report_status(@coordinates) == "Hit!"
+    p "Ship sunk!" if sunk?
+  end
+
 end

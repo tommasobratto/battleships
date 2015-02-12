@@ -1,10 +1,11 @@
 
 class Board
 
-  attr_reader :grid, :coordinates
+  attr_reader :grid, :coordinates, :ships
 
   def initialize
-   @grid = Hash.new
+    @ships = {}
+    @grid = Hash.new
     ('a'..'b').each do |letter|
       (1..2).each do |number|
         @grid["#{letter}#{number}"] = 'water '
@@ -20,18 +21,19 @@ class Board
 
   def place(ship) 
     get_coordinates
-    ship.size.times { grid[coordinates] = 'ship '}
+    @ships[:ship_location] = ship
+    ship.size.times { grid[coordinates] = @ships[:ship_location]}
   end
 
   def take_shot
     get_coordinates
-    grid[coordinates] = 'hit ' if grid[coordinates] == 'ship '
+    grid[coordinates] = 'hit ' if grid[coordinates] == @ships[:ship_location]
     grid[coordinates] = 'miss ' if grid[coordinates] == 'water '
-    report_status(coordinates)
+    report_status(@coordinates)
   end
 
   def report_status(coordinates)
-    if grid[coordinates] == 'hit '
+    if grid[@coordinates] == 'hit '
       p "Hit!"
     else
       p "Miss!"
