@@ -1,44 +1,57 @@
 
 class Board
 
-  attr_reader :grid, :coordinates, :ships
+  attr_reader :grid
 
   def initialize
-    @ships = {}
-    @grid = Hash.new
-    ('a'..'b').each do |letter|
-      (1..2).each do |number|
-        @grid["#{letter}#{number}"] = 'water '
-      print @grid["#{letter}#{number}"]
+    @grid = Array.new(10) { Array.new(10) }
+    draw_grid
+  end
+
+  def draw_grid
+    (0..9).each do |row|
+      (0..9).each do |column|
+        @grid[row] [column] = 'miss'
       end
-      puts 
+    end
+    @grid
+  end
+
+  def place(x, y, ship)
+    if orientation = 'Hor.'
+      @grid[x] [y] = 'hit'
+      y + ship.size 
+      @grid[x] [y] = 'hit' 
+    else ship.orientation = 'Ver.'
+      @grid[x] [y] = 'hit'
+      x + ship.size 
+      @grid[x] [y] = 'hit'
     end
   end
 
-  def get_coordinates
-      @coordinates = gets.chomp 
+
+  def check_hit(x, y)
+    if @grid[x] [y] == 'hit'
+      p "Hit!"
+      @grid[x] [y] = 'hit_marker'
+      # game.score(player)
+    elsif @grid[x] [y] == 'miss'
+      p "Miss!"
+      @grid[x] [y] = 'miss_marker'
+    elsif @grid[x] [y] == 'hit_marker'
+      p "You can't hit a place you've already selected"
+    else @grid[x] [y] == 'miss_marker'
+      p "You can't hit a place you've already selected"
+    end
+    report_status(x, y)
   end
 
-  def place(ship) 
-    get_coordinates
-    @ships[:ship_location] = ship
-    ship.size.times { grid[coordinates] = @ships[:ship_location]}
-    puts @grid
-  end
-
-  def take_shot
-    get_coordinates
-    grid[coordinates] = 'hit ' if grid[coordinates] == @ships[:ship_location]
-    grid[coordinates] = 'miss ' if grid[coordinates] == 'water '
-    puts @grid
-    report_status(@coordinates)
-  end
-
-  def report_status(coordinates)
-    if grid[@coordinates] == 'hit '
+  def report_status(x, y)
+    if @grid[x] [y] == 'hit_marker'
       p "Hit!"
     else
       p "Miss!"
     end
   end
+
 end

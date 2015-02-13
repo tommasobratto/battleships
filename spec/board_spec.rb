@@ -3,25 +3,26 @@ require 'board'
 describe Board do
 
   let(:board)  { Board.new      }
-  let(:ship)   { double :ship, size: 1, name: 'pedalo', hit_points: 1  }
+  let(:ship)   { double :ship, size: 1, hit_points: 1, orientation: "Hor." }
 
   it "should be able to show the status of a cell" do
-    expect(board.grid["a1"]).to eq("water ")
-  end
-
-  it "should be able to accept a ship" do
-    board.place(ship)
-    expect(board.grid['a1']).to eq("ship ")
+    expect(board.grid[0][0]).to eq('miss')
   end
 
   it "should be able to place a marker" do
-    board.take_shot    
-    expect(board.grid['a1']).to eq("miss ")
+    board.check_hit(0, 0)  
+    expect(board.grid[0][0]).to eq('miss_marker')
+  end
+
+
+  it "should be able to accept a ship" do
+    board.place(0, 0, ship)
+    expect(board.grid[0][0]).to eq('hit')
   end
 
   it "should report when there's a hit" do
-    board.place(ship)
-    board.take_shot
-    expect(board.report_status('a1')).to eq("Hit!")
+    board.place(0, 0, ship)
+    board.check_hit(0, 0)
+    expect(board.report_status(0, 0)).to eq("Hit!")
   end
 end

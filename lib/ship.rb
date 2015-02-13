@@ -1,35 +1,36 @@
 class Ship
 
-  attr_reader :size, :name, :hit_points
+  attr_reader :size, :hit_points, :orientation, :start_point
 
-  def initialize(size, name)
+  def initialize(size, orientation, start_point)
     @size = size
-    @name = name
     @hit_points = size
+    @start_point = start_point
+    @orientation = orientation
   end
 
   def self.pedalo
-    new(1, 'pedalo')
+    new(1)
   end
 
   def self.destroyer
-    new(2, 'destroyer')
+    new(2)
   end
 
   def self.cruiser
-    new(3, 'cruiser')
+    new(3)
   end
 
   def self.submarine
-    new(3, 'submarine')
+    new(3)
   end
 
   def self.battleship
-    new(4, 'battleship')
+    new(4)
   end
 
   def self.carrier
-    new(5, 'carrier')
+    new(5)
   end
 
   def hit
@@ -41,7 +42,7 @@ class Ship
   end
 
   def has_been_hit?(board)
-    hit if board.report_status(@coordinates) == "Hit!"
+    hit if board.report_status(x, y) == "Hit!"
     p "Ship sunk!" if sunk?
   end
   
