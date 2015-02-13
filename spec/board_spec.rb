@@ -10,20 +10,20 @@ describe Board do
   end
 
   it "should be able to place a marker" do
-    board.check_hit(0, 0)  
+    board.check_hit('a1')  
     expect(board.grid[0][0]).to eq('miss_marker')
   end
 
 
   it "should be able to accept a ship" do
-    board.place(0, 0, ship)
+    board.place('a1', ship)
     expect(board.grid[0][0]).to eq('hit')
     expect(board.grid[0][1]).to eq('hit')
   end
 
   it "should report when there's a hit" do
-    board.place(0, 0, ship)
-    board.check_hit(0, 0)
+    board.place('a1', ship)
+    board.check_hit('a1')
     expect(board.report_status(0, 0)).to eq("Hit!")
   end
 end

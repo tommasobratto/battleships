@@ -7,13 +7,13 @@ describe Player do
   let(:ship)   { double :ship  }
 
   it "should be able to shoot" do
-    expect(board).to receive(:check_hit).with(0, 0)
+    expect(board).to receive(:check_hit).with('a1')
     player.make_move(board)
   end
 
   it "should be able to place a ship" do
     expect(ship).to receive(:orientation=).with('E')
-    expect(board).to receive(:place).with(0, 0, ship)
+    expect(board).to receive(:place).with('a1', ship)
     player.place_ship(board, ship)
   end
   
