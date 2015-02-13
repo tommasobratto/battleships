@@ -55,13 +55,13 @@ class Board
     convert_coordinates(coord)
 
     if @grid[x] [y] == 'hit'
-      p "Hit!"
       @grid[x] [y] = 'hit_marker'
+      p "Hit!"
       # game.score(player)
     
     elsif @grid[x] [y] == 'miss'
-      p "Miss!"
       @grid[x] [y] = 'miss_marker'
+      p "Miss!"
     
     elsif @grid[x] [y] == 'hit_marker'
       p "You can't hit a place you've already selected"
@@ -69,15 +69,11 @@ class Board
     else @grid[x] [y] == 'miss_marker'
       p "You can't hit a place you've already selected"
     end
-    report_status(x, y)
   end
 
-  def report_status(x, y)
-    if @grid[x] [y] == 'hit_marker'
-      p "Hit!"
-    else
-      p "Miss!"
-    end
+  def report_status(coord, ship)
+    convert_coordinates(coord)
+    ship.hit if @grid[x] [y] == 'hit_marker'
   end
 
 end

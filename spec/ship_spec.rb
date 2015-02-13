@@ -2,7 +2,8 @@ require 'ship'
 
 describe Ship do
 
-  let(:ship) { Ship.new(2, 'E') }
+  let(:ship) { Ship.destroyer('E') }
+  let(:board){ Board.new        }
 
   it "should know it's size" do
     expect(ship.size).to eq 2

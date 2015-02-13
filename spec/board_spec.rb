@@ -23,7 +23,6 @@ describe Board do
 
   it "should report when there's a hit" do
     board.place('a1', ship)
-    board.check_hit('a1')
-    expect(board.report_status(0, 0)).to eq("Hit!")
+    expect(board.check_hit('a1')).to eq("Hit!")
   end
 end
