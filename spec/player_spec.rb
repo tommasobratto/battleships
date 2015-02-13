@@ -12,6 +12,7 @@ describe Player do
   end
 
   it "should be able to place a ship" do
+    expect(ship).to receive(:orientation=).with('E')
     expect(board).to receive(:place).with(0, 0, ship)
     player.place_ship(board, ship)
   end

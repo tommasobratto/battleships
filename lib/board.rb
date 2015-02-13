@@ -19,13 +19,25 @@ class Board
 
   def place(x, y, ship)
     orientation = ship.orientation
-    if orientation == 'Hor.'
+    
+    if orientation == 'E'
       @grid[x] [y] = 'hit'
-      y2 = y + ship.size 
+      y2 = y += 1
       @grid[x] [y2] = 'hit' 
-    else ship.orientation == 'Ver.'
+    
+    elsif orientation == 'W'
       @grid[x] [y] = 'hit'
-      x2 = x + ship.size 
+      y3 = y -= 1 
+      @grid[x] [y3] = 'hit' 
+
+    elsif orientation == 'S'
+      @grid[x] [y] = 'hit'
+      x3 = x -= 1 
+      @grid[x] [y2] = 'hit' 
+
+    else ship.orientation == 'N'
+      @grid[x] [y] = 'hit'
+      x2 = x += 1
       @grid[x] [y] = 'hit'
     end
   end
@@ -36,11 +48,14 @@ class Board
       p "Hit!"
       @grid[x] [y] = 'hit_marker'
       # game.score(player)
+    
     elsif @grid[x] [y] == 'miss'
       p "Miss!"
       @grid[x] [y] = 'miss_marker'
+    
     elsif @grid[x] [y] == 'hit_marker'
       p "You can't hit a place you've already selected"
+    
     else @grid[x] [y] == 'miss_marker'
       p "You can't hit a place you've already selected"
     end

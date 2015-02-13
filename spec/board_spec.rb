@@ -3,7 +3,7 @@ require 'board'
 describe Board do
 
   let(:board)  { Board.new      }
-  let(:ship)   { double :ship, size: 2, hit_points: 1, orientation: "Hor." }
+  let(:ship)   { double :ship, size: 2, orientation: "E" }
 
   it "should be able to show the status of a cell" do
     expect(board.grid[0][0]).to eq('miss')
@@ -18,7 +18,7 @@ describe Board do
   it "should be able to accept a ship" do
     board.place(0, 0, ship)
     expect(board.grid[0][0]).to eq('hit')
-    expect(board.grid[0][1])
+    expect(board.grid[0][1]).to eq('hit')
   end
 
   it "should report when there's a hit" do

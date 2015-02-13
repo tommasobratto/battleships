@@ -2,7 +2,7 @@ require 'ship'
 
 describe Ship do
 
-  let(:ship) { Ship.new(2, 'Hor.', 'A1') }
+  let(:ship) { Ship.new(2, 'E') }
 
   it "should know it's size" do
     expect(ship.size).to eq 2
@@ -19,10 +19,7 @@ describe Ship do
   end
 
   it "should be able to have an orientation" do
-    expect(ship.orientation).to eq('Hor.')
+    expect(ship.orientation).to eq('E')
   end
  
-  it "should be able to have a starting point" do
-    expect(ship.start_point).to eq('A1')
-  end
 end

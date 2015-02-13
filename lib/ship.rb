@@ -1,36 +1,35 @@
 class Ship
 
-  attr_reader :size, :hit_points, :orientation, :start_point
+  attr_reader :size, :hit_points, :orientation
 
-  def initialize(size, orientation, start_point)
+  def initialize(size, orientation)
     @size = size
     @hit_points = size
-    @start_point = start_point
     @orientation = orientation
   end
 
-  def self.pedalo
-    new(1)
+  def self.pedalo(orientation)
+    new(1, orientation)
   end
 
-  def self.destroyer
-    new(2)
+  def self.destroyer(orientation)
+    new(2, orientation)
   end
 
-  def self.cruiser
-    new(3)
+  def self.cruiser(orientation)
+    new(3, orientation)
   end
 
-  def self.submarine
-    new(3)
+  def self.submarine(orientation)
+    new(3, orientation)
   end
 
-  def self.battleship
-    new(4)
+  def self.battleship(orientation)
+    new(4, orientation)
   end
 
-  def self.carrier
-    new(5)
+  def self.carrier(orientation)
+    new(5, orientation)
   end
 
   def hit
