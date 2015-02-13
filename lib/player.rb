@@ -25,8 +25,4 @@ class Player
     @coordinates_chosen << @coord
   end
 
-  def query_ship(ship, board)
-    ship.has_been_hit?(board)
-  end
-
 end
