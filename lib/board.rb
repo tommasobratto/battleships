@@ -18,13 +18,14 @@ class Board
   end
 
   def place(x, y, ship)
-    if orientation = 'Hor.'
+    orientation = ship.orientation
+    if orientation == 'Hor.'
       @grid[x] [y] = 'hit'
-      y + ship.size 
-      @grid[x] [y] = 'hit' 
-    else ship.orientation = 'Ver.'
+      y2 = y + ship.size 
+      @grid[x] [y2] = 'hit' 
+    else ship.orientation == 'Ver.'
       @grid[x] [y] = 'hit'
-      x + ship.size 
+      x2 = x + ship.size 
       @grid[x] [y] = 'hit'
     end
   end
