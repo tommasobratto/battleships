@@ -1,4 +1,5 @@
-# battleships
+# Battleships
 
-- Battleships
---- Makers Academy second week's project
+### Makers Academy second week's project
+
+Trying to recreate the famous Battleship board game.
